@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_second"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+ android:orientation="vertical"
+    tools:context="com.example.haily.learnuikongjian.SecondActivity">
+    <TextView
+        android:text="正确的用户名是: liheming 密码是 : 123456"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:hint="请输入用户名"
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/password"
+        android:hint="请输入密码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <CheckBox
+        android:id="@+id/checkboX_autologin"
+        android:text="下次自动登录"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="HttpGet登陆"
+            android:id="@+id/btn_get"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="HttpPost登陆"
+            android:textAllCaps="false"
+            android:id="@+id/btn_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:text="电话本"
+            android:textAllCaps="false"
+            android:id="@+id/btn_showNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />     <Button
+            android:text="本地登陆"
+            android:textAllCaps="false"
+            android:id="@+id/btn_sqlitelogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/isLogin"
+        android:text="登陆是否成功"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+
+    </ListView>
+
+</LinearLayout>
