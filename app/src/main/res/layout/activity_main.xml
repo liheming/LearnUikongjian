@@ -21,13 +21,19 @@
       android:orientation="horizontal"
       android:layout_height="wrap_content">
       <Button
-          android:text="显示时间选择对话框"
+          android:text="时间对话框"
           android:id="@+id/showDate"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
       <Button
           android:text="打开记事本"
           android:id="@+id/btn_openNote"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
+      <Button
+          android:text="ThreeActivity"
+          android:textAllCaps="false"
+          android:id="@+id/btn_open_activity"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
 
@@ -78,8 +84,9 @@
     android:layout_height="wrap_content">
     <ToggleButton
         android:id="@+id/toggleControVoice"
-        android:textOn="关闭声音"
-        android:textOff="打开声音"
+        android:textAllCaps="false"
+        android:textOn="打开"
+        android:textOff="关闭"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Switch
@@ -87,9 +94,30 @@
       android:id="@+id/switchVoice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Spinner
+        android:id="@+id/spinner"
+        android:entries="@array/array"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    </Spinner>
+    <Spinner
+        android:id="@+id/spinner_two"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp">
+
+    </Spinner>
 
 
 </LinearLayout>
+
+    <ExpandableListView
+
+        android:id="@+id/expand_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ExpandableListView>
 
     <ProgressBar
         android:id="@+id/downProgress"
@@ -126,11 +154,23 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/url_Edit"
-        android:hint="网址 eg www.baidu.com"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+
+
+
+    <AutoCompleteTextView
+
+        android:completionHint="请输入网址"
+        android:completionThreshold="1"
+        android:dropDownHorizontalOffset="5dp"
+        android:id="@+id/url_auto_textV"
+        android:hint="请输入网址 eg www.baidu.com"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
+
+
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
@@ -151,6 +191,7 @@
         <Button
             android:id="@+id/btnOpenFragment"
             android:text="下一个Activity"
+            android:textAllCaps="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

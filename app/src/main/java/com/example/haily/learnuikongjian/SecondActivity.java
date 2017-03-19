@@ -1,10 +1,12 @@
 package com.example.haily.learnuikongjian;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.haily.learnuikongjian.phone.GetNumber;
+import com.example.haily.learnuikongjian.phone.ListFragment;
 import com.example.haily.learnuikongjian.phone.MyAdapter;
 
 import java.io.BufferedReader;
@@ -39,13 +42,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        data = getSharedPreferences("data", MODE_PRIVATE);
+        data = getSharedPreferences("itemdata", MODE_PRIVATE);
         edit = data.edit();
-
         btn_get = (Button) findViewById(R.id.btn_get);
         btnSQLiteLogin = (Button) findViewById(R.id.btn_sqlitelogin);
         btn_showNumber = (Button) findViewById(R.id.btn_showNumber);
@@ -118,9 +121,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
 
             case R.id.btn_showNumber:
+                getSupportFragmentManager().beginTransaction().add(R.id.second, new ListFragment()).commit();
                 System.out.println("开始工作");
-                Toast.makeText(getApplicationContext(), "开始工作", Toast.LENGTH_SHORT).show();
-                getNumber();
+//                getNumber();
                 break;
         }
     }
@@ -149,8 +152,18 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         myAdapter = new MyAdapter(GetNumber.list, this);
         lv = (ListView) findViewById(R.id.lv);
         lv.setAdapter(myAdapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String result = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+//                parent.removeViewAt(position);
+
+            }
+        });
 
     }
+
 
     private void doPost() {
 

@@ -25,4 +25,24 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+    <TextView
+        android:textSize="20dp"
+        android:text="name"
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="黎合明"
+        android:focusable="false"
+        android:id="@+id/btn_liheming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+  <CheckBox
+      android:text="你好"
+      android:id="@+id/chnihao"
+      android:focusable="false"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+
 </LinearLayout>

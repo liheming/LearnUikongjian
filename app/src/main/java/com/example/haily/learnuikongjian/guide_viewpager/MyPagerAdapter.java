@@ -15,11 +15,18 @@ public class MyPagerAdapter extends android.support.v4.view.PagerAdapter {
     Context context;
     List<View> views;
 
+
     MyPagerAdapter(Context context, List<View> views) {
         this.context = context;
         this.views = views;
 
     }
+
+//    @Override
+//    public CharSequence getPageTitle(int position) {
+//        return super.getPageTitle(position);
+//    }
+
     @Override
     public int getCount() {
         return views.size();
@@ -36,6 +43,7 @@ public class MyPagerAdapter extends android.support.v4.view.PagerAdapter {
         container.removeView(views.get(position));
 
     }
+
 
     @Override
     public boolean isViewFromObject(View view, Object object) {

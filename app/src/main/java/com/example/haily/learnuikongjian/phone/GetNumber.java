@@ -13,7 +13,7 @@ import java.util.List;
 
 public class GetNumber {
 
-    public static List<PhoneInfo> list = new ArrayList<>();
+    public static ArrayList<PhoneInfo> list = new ArrayList<>();
 
 
     public static String GetNumber(Context context) {

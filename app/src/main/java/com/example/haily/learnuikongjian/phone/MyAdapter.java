@@ -5,7 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.haily.learnuikongjian.R;
@@ -18,15 +19,45 @@ import java.util.List;
  */
 
 public class MyAdapter extends BaseAdapter {
-    LinearLayout linearLayout;
+
     List<PhoneInfo> list = new ArrayList<PhoneInfo>();
     Context context;
 
 
-   public MyAdapter(List<PhoneInfo> list , Context  context) {
+    public MyAdapter(List<PhoneInfo> list, Context context) {
         this.context = context;
         this.list = list;
 
+    }
+
+//
+//    @Override
+//    public int getViewTypeCount() {
+//        return 2;
+//    }
+
+//    @Override
+//    public int getItemViewType(int position) {
+//        if (list.get(position) instanceof Book)
+//        return super.getItemViewType(position);
+//    }
+
+    public void removeById(int position ) {
+        if (list != null) {
+            list.remove(position);
+
+        }
+        notifyDataSetChanged();
+
+
+
+    }
+    public void removeByData(PhoneInfo view ) {
+        if (list != null) {
+            list.remove(view);
+
+        }
+        notifyDataSetChanged();
 
     }
 
@@ -47,12 +78,37 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        linearLayout = (LinearLayout) inflater.inflate(R.layout.cell, null);
-        TextView name = (TextView) linearLayout.findViewById(R.id.text_name);
-        TextView number = (TextView) linearLayout.findViewById(R.id.text_number);
-        name.setText(list.get(position).getName());
-        number.setText(list.get(position).getNumber());
-        return linearLayout;
+        ViewHolder viewholder = null;
+        if (convertView == null) {
+            viewholder = new ViewHolder();
+            LayoutInflater inflater = LayoutInflater.from(context);
+            convertView = inflater.inflate(R.layout.cell, null);
+
+
+            ViewHolder.txt_aName = (TextView) convertView.findViewById(R.id.text_name);
+            ViewHolder.test = (TextView) convertView.findViewById(R.id.test);
+            ViewHolder.txt_number = (TextView) convertView.findViewById(R.id.text_number);
+            convertView.setTag(viewholder);
+        }
+        else{
+            convertView.getTag();
+        }
+
+
+        ViewHolder.test.setText(list.get(position).getName());
+        ViewHolder.txt_aName.setText(list.get(position).getName());
+        ViewHolder.txt_number.setText(list.get(position).getNumber());
+
+
+        return convertView;
+    }
+
+    static class ViewHolder {
+
+
+        static TextView txt_aName;
+        static TextView test;
+        static TextView txt_number;
+
     }
 }

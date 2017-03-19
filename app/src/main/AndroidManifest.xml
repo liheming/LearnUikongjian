@@ -26,17 +26,20 @@
         <activity
             android:name=".guide_viewpager.WelcomeActivity"
             android:label="ViewPager">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".SecondActivity" />
         <activity
             android:name=".note.NoteMainAty"
             android:label="@string/title_activity_note_main_aty"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ThreeActivity"></activity>
     </application>
 
 </manifest>
